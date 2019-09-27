@@ -1,7 +1,7 @@
 import turtle
 import math
 import random
-import os
+import winsound
 #Set up the screen
 wn = turtle.Screen()
 wn.bgcolor("black")
@@ -123,7 +123,7 @@ def fire_bullet():
         y = player.ycor() + 10
         bullet.setposition(x,y)
         bullet.showturtle()
-        os.system("aplay laser.wav&")
+        winsound.PlaySound("laser.wav", winsound.SND_ASYNC)
 
 
 def isCollision(t1,t2):
@@ -188,7 +188,7 @@ while endcheck:
             x = random.randint(-200,200)
             y = random.randint(200,250)
             enemy.setposition(x,y)
-            os.system("aplay explosion.wav&")
+            winsound.PlaySound("explosion.wav", winsound.SND_ASYNC)
             #Update the score
             score += 1000
             scorestring = "Score: %s" %score
@@ -196,7 +196,7 @@ while endcheck:
             score_pen.write(scorestring, False, align="left",font=("Arial", 14, "normal"))
 
         if isCollision(enemy,player) or bordercheck:
-            os.system("aplay game_over.wav")
+            winsound.PlaySound("gameover.wav", winsound.SND_ASYNC)
             if score>int(last_score):
                 print(score)
                 new_score = open("highscore.txt","w")
