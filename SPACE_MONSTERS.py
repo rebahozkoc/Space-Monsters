@@ -1,7 +1,17 @@
 import turtle
 import math
 import random
-import winsound
+import platform
+import os
+# Determine platform type
+
+plt_list = ["Linux", "Windows", "Darwin"]
+plt = platform.system()
+if plt == "Windows":
+    import winsound
+
+
+
 #Set up the screen
 wn = turtle.Screen()
 wn.bgcolor("black")
@@ -47,7 +57,7 @@ gameover_pen.speed(0)
 gameover_pen.color("orange")
 gameover_pen.penup()
 gameover_pen.setposition(75,-320)
-creditstring = "Developed by REBASoftware"
+creditstring = "Developed by Rebahozkoc"
 gameover_pen.write(creditstring, False, align="left",font=("Arial", 10, "bold"))
 gameover_pen.hideturtle()
 
@@ -123,7 +133,12 @@ def fire_bullet():
         y = player.ycor() + 10
         bullet.setposition(x,y)
         bullet.showturtle()
-        winsound.PlaySound("laser.wav", winsound.SND_ASYNC)
+        if plt == plt_list[0]:
+            os.system("aplay laser.wav&")
+        if plt == plt_list[1]:
+            winsound.PlaySound("laser.wav", winsound.SND_ASYNC)
+        if plt == plt_list[2]:
+            os.system("aflay laser.wav&")
 
 
 def isCollision(t1,t2):
@@ -188,7 +203,12 @@ while endcheck:
             x = random.randint(-200,200)
             y = random.randint(200,250)
             enemy.setposition(x,y)
-            winsound.PlaySound("explosion.wav", winsound.SND_ASYNC)
+            if plt == plt_list[0]:
+                os.system("aplay explosion.wav&")
+            if plt == plt_list[1]:
+                winsound.PlaySound("explosion.wav", winsound.SND_ASYNC)
+            if plt == plt_list[2]:
+                os.system("aflay explosion.wav&")
             #Update the score
             score += 1000
             scorestring = "Score: %s" %score
@@ -196,7 +216,13 @@ while endcheck:
             score_pen.write(scorestring, False, align="left",font=("Arial", 14, "normal"))
 
         if isCollision(enemy,player) or bordercheck:
-            winsound.PlaySound("gameover.wav", winsound.SND_ASYNC)
+            if plt == plt_list[0]:
+                os.system("aplay game_over.wav")
+            if plt == plt_list[1]:
+                winsound.PlaySound("gameover.wav", winsound.SND_ASYNC)
+            if plt == plt_list[2]:
+                os.system("aflay game_over.wav")
+     
             if score>int(last_score):
                 print(score)
                 new_score = open("highscore.txt","w")
