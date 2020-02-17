@@ -110,19 +110,19 @@ enemyspeed = 2
 
 
 def move_left():
-    x = player.xcor()
-    x = x - playerspeed
-    if x < -285:
-        x = -285
-    player.setx(x)
+    x_c = player.xcor()
+    x_c = x_c - playerspeed
+    if x_c < -285:
+        x_c = -285
+    player.setx(x_c)
 
 
 def move_right():
-    x = player.xcor()
-    x = x + playerspeed
-    if x > +285:
-        x = +285
-    player.setx(x)
+    x_c = player.xcor()
+    x_c = x_c + playerspeed
+    if x_c > +285:
+        x_c = +285
+    player.setx(x_c)
 
 
 # Declare bulletstate as a global if it needs changed
@@ -131,9 +131,9 @@ def fire_bullet():
     # Move the bullet to just above the player
     if bulletstate == "ready":
         bulletstate = "fire"
-        x = player.xcor()
-        y = player.ycor() + 10
-        bullet.setposition(x, y)
+        x_c = player.xcor()
+        y_c = player.ycor() + 10
+        bullet.setposition(x_c, y_c)
         bullet.showturtle()
         if plt == plt_list[0]:
             os.system("aplay laser.wav&")
