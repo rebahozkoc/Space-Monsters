@@ -1,4 +1,4 @@
-#!/home/rebahlinux/PycharmProjects/spacemonsters-windows/venv/bin/python
+#!/home/rebahlinux/PycharmProjects/Space-Monsters/venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip'
 __requires__ = 'pip==19.0.3'
 import re

@@ -1,4 +1,4 @@
-#!/home/rebahlinux/PycharmProjects/spacemonsters-windows/venv/bin/python
+#!/home/rebahlinux/PycharmProjects/Space-Monsters/venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'setuptools==40.8.0','console_scripts','easy_install'
 __requires__ = 'setuptools==40.8.0'
 import re
