@@ -12,5 +12,5 @@ Clone or download the repository. Run SPACE_MONSTERS.py with your Python3 or ven
 
 Use arrow keys to move your ship. Use spacebar to shot.
 
-### Design Notes:
+## Design Notes
 I used turtle module mostly. This my first programming project ever.
